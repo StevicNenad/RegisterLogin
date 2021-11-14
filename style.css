@@ -1,0 +1,23 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(238, 238, 238);
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.table {
+    padding: 3%;
+    display: table;
+    background-color: white;
+    box-shadow: 5px 5px lightgray;
+}
+
+.trow {
+    margin: 5px;
+}

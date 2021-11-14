@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <div class="table">
+            <h1>Login or Register</h1>
+            <form action="Main.php" method="POST">
+                <div class="trow">
+                    <input type="text" id="username" name="login" placeholder="Username or Email">
+                </div>
+                <div class="trow">
+                    <input type="password" id="secret" name="password" placeholder="Password">
+                </div>
+                <div class="trow">
+                    <input type="submit" id="send" name="login" value="Login">
+                </div>
+                <div class="trow">
+                    <input type="button" onClick="window.location.href='register.html';" id="sign_up" name="register" value="Create Account">
+                </div>
+            </div>
+        </table>
+    </div>
+</body>
+</html>

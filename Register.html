@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function verifyInput(){
+        var username = document.getElementById("nick").value;
+        var email = document.getElementById("mail").value;
+        var pw = document.getElementById("pass").value;
+        var conf_pw = document.getElementById("conf_pass").value;
+
+        for(let i = 0; i < username.length(); i++){
+            
+        }
+    }
+</script>
+<body>
+    <div class="form">
+        <div class="table">
+            <h1>Create Account</h1>
+            <form action="Register.php" method="POST">
+                <div class="trow">
+                    <input type="text" id="nick" name="username" placeholder="Username">
+                </div>
+                <div class="trow">
+                    <input type="email" id="mail" name="email" placeholder="E-mail address">
+                </div>
+                <div class="trow">
+                    <input type="password" id="pass" name="password" placeholder="Password">
+                </div>
+                <div class="trow">
+                    <input type="password" id="conf_pass" name="confirm_password" placeholder="Confirm password">
+                </div>
+                <div class="trow">
+                    <input type="submit" id="regi" name="register" value="Register" placeholder="Register now">
+                </div>
+                <div class="trow">
+                    <input type="button" onclick="window.location.href='form.html';" id="return" name="sign_in" value="Already a member? Sign in!">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
