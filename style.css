@@ -3,6 +3,15 @@ body {
     background-color: rgb(238, 238, 238);
 }
 
+.error {
+    font-size: 12px;
+    color: lightcoral;
+}
+
+.hidden {
+    display: none;
+}
+
 .form {
     display: flex;
     justify-content: center;
