@@ -1,50 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="Register.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<script>
-    var valid_username = false;
-    var valid_email = false;
-
-    function verifyUsername(){
-        let username = document.getElementById("nick").value;
-        let regex = /^\w*$/;
-
-        if(!regex.test(username)){
-            document.getElementById("error_username").classList.remove("hidden");
-            valid_username = false;
-        }
-        else{
-            document.getElementById("error_username").classList.add("hidden");
-            valid_username = true;
-        }
-    }
-    function verifyEmail(){
-        let email = document.getElementById("mail").value;
-        //copied this shit off the net cause jesus christ what the fuck even is this regular expression (RFC 5322)
-        let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        if(!regex.test(email)){
-            document.getElementById("error_email").classList.remove("hidden");
-            valid_email = false;
-        }
-        else{
-            document.getElementById("error_email").classList.add("hidden");
-            valid_email = true;
-        }
-    }
-    function verifyInput(){
-        let email = document.getElementById("mail").value;
-        let pw = document.getElementById("pass").value;
-        let conf_pw = document.getElementById("conf_pass").value;
-
-    }
-</script>
 <body>
     <div class="form">
         <div class="table">
@@ -52,6 +15,7 @@
             <form action="Register.php" method="POST">
                 <div class="trow">
                     <input type="text" id="nick" name="username" placeholder="Username" onfocusout="verifyUsername()"></br>
+                    <label id="error_tooshort" class="error hidden">*Username too short (minimum 5 characters)</label>
                     <label id="error_username" class="error hidden">*Only alphanumeric (a-z, 0-9) and underscores (_) valid</label>
                 </div>
                 <div class="trow">
@@ -60,12 +24,14 @@
                 </div>
                 <div class="trow">
                     <input type="password" id="pass" name="password" placeholder="Password">
+                    <label id="error_pw_tooshort" class="error hidden">*Password too short (minimum 8 characters)</label>
+                    <label id="error_pw" class="error hidden">*Password needs to contain 3 of the following:</br> - Uppercase Letter</br> - Lowercase Letter</label>
                 </div>
                 <div class="trow">
                     <input type="password" id="conf_pass" name="confirm_password" placeholder="Confirm password">
                 </div>
                 <div class="trow">
-                    <input type="submit" id="regi" name="register" value="Register Now">
+                    <input type="submit" id="regi" name="register" value="Register Now" disabled>
                 </div>
                 <div class="trow">
                     <input type="button" onclick="window.location.href='form.html';" id="return" name="sign_in" value="Already a member? Sign in!">
