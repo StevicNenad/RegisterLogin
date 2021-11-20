@@ -23,9 +23,14 @@
                     <label id="error_email" class="error hidden">*Invalid email address</label>
                 </div>
                 <div class="trow">
-                    <input type="password" id="pass" name="password" placeholder="Password">
+                    <input type="password" id="pass" name="password" placeholder="Password" onfocusout="verifyPass()"></br>
                     <label id="error_pw_tooshort" class="error hidden">*Password too short (minimum 8 characters)</label>
-                    <label id="error_pw" class="error hidden">*Password needs to contain 3 of the following:</br> - Uppercase Letter</br> - Lowercase Letter</label>
+                    <label id="error_pw" class="pwcheck hidden">*Password needs to contain 3 of the following:
+                        <label id="lowercase_letters"></br> - Lowercase Letter</label>
+                        <label id="uppercase_letters"></br> - Uppercase Letter</label>
+                        <label id="numbers"></br> - Number</label>
+                        <label id = "special_chars"></br> - Special Character</label>
+                    </label>
                 </div>
                 <div class="trow">
                     <input type="password" id="conf_pass" name="confirm_password" placeholder="Confirm password">

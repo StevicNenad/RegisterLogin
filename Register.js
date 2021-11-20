@@ -3,7 +3,7 @@
         let username = document.getElementById("nick").value;
         let regex = /^\w*$/;
 
-        if(username.length < 5 && username.length > 0){
+        if(username.length < 5 && username.length != 0){
             if(!regex.test(username)) document.getElementById("error_username").classList.add("hidden"); //Added this if statement to avoid displaying two error messages at once in the form
             document.getElementById("error_tooshort").classList.remove("hidden");
             return;
@@ -31,14 +31,71 @@
         }
     }
     function verifyPass(){
+        var valid_password = false;
         let pw = document.getElementById("pass").value;
+        let validation_checks = 1;
         let regex_lower = /[a-z]/;
         let regex_upper = /[A-Z]/;
-        let regex_symbol = /(?=.*[!@#$%^&*])/;
+        let regex_symbol = /\W/;
         let regex_number = /[0-9]/;
 
-        if(pw.length < 8 && pw.length > 0){
+        document.getElementById("pass").removeAttribute("onfocusout");
+        document.getElementById("pass").setAttribute("onkeyup", "verifyPass()");
+
+        if(pw.length < 8 && pw.length != 0){
+            document.getElementById("error_pw").classList.add("hidden");
             document.getElementById("error_pw_tooshort").classList.remove("hidden");
+            valid_password = false;
+        }
+        else{
+            document.getElementById("error_pw_tooshort").classList.add("hidden");
+        }
+
+        if((!regex_lower.test(pw) || !regex_upper.test(pw) || !regex_symbol.test(pw) || !regex_number.test(pw)) && pw.length > 7){
+            document.getElementById("error_pw").classList.remove("hidden");
+
+            if(regex_lower.test(pw)){
+                document.getElementById("lowercase_letters").style.color = "green";
+                validation_checks++;
+            }
+            else {
+                document.getElementById("lowercase_letters").style.color = "black";
+                validation_checks--;
+            }
+
+            if(regex_upper.test(pw)){
+                document.getElementById("uppercase_letters").style.color = "green";
+                validation_checks++;
+            }
+            else {
+                document.getElementById("uppercase_letters").style.color = "black";
+                validation_checks--;
+            }
+
+            if(regex_number.test(pw)){
+                document.getElementById("numbers").style.color = "green";
+                validation_checks++;
+            }
+            else {
+                document.getElementById("numbers").style.color = "black";
+                validation_checks--;
+            }
+
+            if(regex_symbol.test(pw)){
+                document.getElementById("special_chars").style.color = "green";
+                validation_checks++;
+            }
+            else {
+                document.getElementById("special_chars").style.color = "black";
+                validation_checks--;
+            }
+
+            if(validation_checks > 2){
+                document.getElementById("error_pw").classList.add("hidden");
+                document.getElementById("error_pw_tooshort").classList.add("hidden");
+                valid_password = true;
+            }
+            else {valid_password = false;}
         }
     }
     function verifyInput(){
