@@ -12,7 +12,7 @@
     <div class="form">
         <div class="table">
             <h1>Create Account</h1>
-            <form action="Register.php" method="POST">
+            <form action="Register.php" method="POST" onkeyup="verifyInput()">
                 <div class="trow">
                     <input type="text" id="nick" name="username" placeholder="Username" onfocusout="verifyUsername()"></br>
                     <label id="error_tooshort" class="error hidden">*Username too short (minimum 5 characters)</label>
@@ -23,7 +23,7 @@
                     <label id="error_email" class="error hidden">*Invalid email address</label>
                 </div>
                 <div class="trow">
-                    <input type="password" id="pass" name="password" placeholder="Password" onfocusout="verifyPass()"></br>
+                    <input type="password" id="pass" name="password" placeholder="Password" onkeyup="verifyPass()"></br>
                     <label id="error_pw_tooshort" class="error hidden">*Password too short (minimum 8 characters)</label>
                     <label id="error_pw" class="pwcheck hidden">*Password needs to contain 3 of the following:
                         <label id="lowercase_letters"></br> - Lowercase Letter</label>
@@ -33,7 +33,8 @@
                     </label>
                 </div>
                 <div class="trow">
-                    <input type="password" id="conf_pass" name="confirm_password" placeholder="Confirm password">
+                    <input type="password" id="conf_pass" name="confirm_password" placeholder="Confirm password" onkeyup="verifyPass()"></br>
+                    <label id="error_pw_no_match" class="error hidden">*Passwords don't match</label>
                 </div>
                 <div class="trow">
                     <input type="submit" id="regi" name="register" value="Register Now" disabled>
